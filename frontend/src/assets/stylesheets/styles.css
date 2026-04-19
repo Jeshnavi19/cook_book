@@ -1,0 +1,193 @@
+body {
+  margin: 0;
+  font-family: "Segoe UI", sans-serif;
+  background: #f8f5f0;
+}
+
+/* HOME */
+.home {
+  padding: 20px;
+}
+
+/* HERO */
+.hero {
+  display: flex;
+  background: #f3e9dc;
+  border-radius: 15px;
+  overflow: hidden;
+  margin-bottom: 30px;
+}
+
+.hero-text {
+  padding: 30px;
+  width: 50%;
+}
+
+.hero-text h1 {
+  font-size: 32px;
+  color: #5a2e0f;
+}
+
+.hero-text p {
+  margin: 10px 0;
+  color: #666;
+}
+
+.hero-text button {
+  background: #c45d00;
+}
+
+.hero img {
+  width: 50%;
+  object-fit: cover;
+}
+
+/* SECTION TITLE */
+.section-title {
+  margin: 20px 0;
+  font-size: 22px;
+}
+
+/* CATEGORIES */
+.categories {
+  display: flex;
+  gap: 15px;
+  overflow-x: auto;
+  margin-bottom: 30px;
+}
+
+.category-card {
+  min-width: 180px;
+  border-radius: 10px;
+  overflow: hidden;
+  background: white;
+}
+
+.category-card img {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+}
+
+.category-card p {
+  padding: 10px;
+  text-align: center;
+}
+
+/* GRID */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+/* RECIPE CARD */
+.recipe-card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: 0.3s;
+}
+
+.recipe-card:hover {
+  transform: translateY(-5px);
+}
+
+.recipe-card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+}
+
+.recipe-content {
+  padding: 15px;
+}
+
+.recipe-content h3 {
+  margin-bottom: 5px;
+}
+
+.recipe-content p {
+  color: gray;
+}
+
+.upload-box {
+  display: block;
+  padding: 20px;
+  border: 2px dashed #aaa;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.recipe-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+/* NAVBAR */
+.navbar {
+  display: flex;
+  justify-content: space-between; /* pushes right */
+  align-items: center;
+  padding: 15px 30px;
+  background: #1f1f1f;
+  color: white;
+}
+
+/* LOGO */
+.logo {
+  margin: 0;
+}
+
+/* RIGHT SIDE */
+.nav-right {
+  display: flex;
+  gap: 20px; /* spacing between links */
+  align-items: center;
+}
+
+/* LINKS */
+.nav-right a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.nav-right a:hover {
+  color: #ff9800;
+}
+
+/* LOGOUT BUTTON */
+.logout-btn {
+  background: #ff4d4d;
+  border: none;
+  padding: 6px 12px;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.logout-btn:hover {
+  background: #cc0000;
+}
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.details-img {
+  width: 100%;
+  max-width: 600px;
+  display: block;
+  margin: 0 auto 20px;
+  border-radius: 12px;
+}
+
+.list li {
+  margin: 5px 0;
+}

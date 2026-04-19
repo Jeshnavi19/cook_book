@@ -1,0 +1,179 @@
+@import "./variables";
+@import "./mixins";
+
+.auth-page {
+  @extend .page;
+  @include flex-column-center;
+  min-height: 100vh;
+  justify-content: center;
+  background: $bg;
+}
+
+.auth-card {
+  @include card-elevated;
+  max-width: 450px;
+  width: 100%;
+  border: 1px solid rgba($border-dark, 0.95);
+  background: $card-bg;
+
+  @include media-tablet {
+    margin: $spacing-lg;
+  }
+
+  @include media-mobile {
+    margin: $spacing-md;
+    max-width: 100%;
+  }
+
+  h2 {
+    text-align: center;
+    font-size: $font-size-h2;
+    margin-bottom: $spacing-xl;
+    color: $text-dark;
+    font-weight: $font-weight-bold;
+
+    @include media-mobile {
+      font-size: $font-size-h3;
+      margin-bottom: $spacing-lg;
+    }
+  }
+}
+
+.auth-input {
+  @include input-base;
+  font-size: $font-size-base;
+  background: $bg2;
+  border: 1px solid $border-light;
+  color: $text-dark;
+
+  &:focus {
+    outline: none;
+    border-color: $primary-color;
+    box-shadow: 0 0 0 4px rgba($primary-color, 0.08);
+  }
+
+  @include media-mobile {
+    font-size: 16px; 
+  }
+}
+
+.auth-submit {
+  @include button-primary;
+  width: 100%;
+  margin-top: $spacing-lg;
+  font-size: $font-size-base;
+  font-weight: $font-weight-medium;
+  padding: $spacing-md;
+  border-radius: $border-radius-sm;
+
+  &:disabled {
+    @include disabled-state;
+  }
+
+  @include media-mobile {
+    font-size: $font-size-base;
+  }
+}
+
+.form-group {
+  margin-bottom: $spacing-lg;
+  display: flex;
+  flex-direction: column;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  label {
+    font-weight: $font-weight-medium;
+    margin-bottom: $spacing-sm;
+    color: $text-dark;
+    font-size: $font-size-sm;
+  }
+
+  input {
+    @include input-base;
+  }
+
+  .error {
+    color: $danger-color;
+    font-size: $font-size-sm;
+    margin-top: $spacing-xs;
+  }
+
+  .success {
+    color: $success-color;
+    font-size: $font-size-sm;
+    margin-top: $spacing-xs;
+  }
+}
+
+.auth-link {
+  text-align: center;
+  margin-top: $spacing-lg;
+  color: $text-gray;
+  font-size: $font-size-sm;
+
+  a {
+    color: $primary-color;
+    font-weight: $font-weight-medium;
+    text-decoration: none;
+    transition: color $transition-fast;
+
+    &:hover {
+      color: $secondary-color;
+      text-decoration: underline;
+    }
+  }
+}
+
+.auth-loading {
+  @include loading-state;
+
+  .auth-submit {
+    @include disabled-state;
+  }
+}
+
+.auth-error {
+  background: rgba($danger-color, 0.1);
+  border: 1px solid rgba($danger-color, 0.45);
+  border-radius: $border-radius-md;
+  padding: $spacing-md;
+  margin-bottom: $spacing-lg;
+  color: $danger-color;
+  font-size: $font-size-sm;
+  display: none;
+
+  &.show {
+    display: block;
+    animation: slideInDown 0.3s ease;
+  }
+
+  @keyframes slideInDown {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+.auth-success {
+  background: rgba($success-color, 0.1);
+  border: 1px solid rgba($success-color, 0.4);
+  border-radius: $border-radius-md;
+  padding: $spacing-md;
+  margin-bottom: $spacing-lg;
+  color: $success-color;
+  font-size: $font-size-sm;
+  display: none;
+
+  &.show {
+    display: block;
+    animation: slideInDown 0.3s ease;
+  }
+}

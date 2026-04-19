@@ -1,0 +1,350 @@
+@import "./variables";
+@import "./mixins";
+
+.create-recipe {
+  @extend .page;
+}
+
+.recipe-form {
+  @include card-elevated;
+  max-width: 700px;
+  margin: $spacing-xl auto;
+  border: 1px solid rgba($border-dark, 0.95);
+  background: $card-bg;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+  overflow: visible;
+
+  @include media-tablet {
+    margin: $spacing-lg auto;
+  }
+
+  @include media-mobile {
+    margin: $spacing-md auto;
+    padding: $spacing-md;
+  }
+
+  h2 {
+    text-align: center;
+    font-size: $font-size-h2;
+    margin-bottom: $spacing-xl;
+    color: $text-dark;
+
+    @include media-mobile {
+      font-size: $font-size-h3;
+      margin-bottom: $spacing-lg;
+    }
+  }
+}
+
+.upload-box {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: $spacing-xl;
+  border: 2px dashed rgba($primary-color, 0.45);
+  border-radius: $border-radius-md;
+  cursor: pointer;
+  margin-bottom: $spacing-lg;
+  text-align: center;
+  transition: all $transition-normal;
+  background: $bg3;
+  min-height: 150px;
+
+  &:hover {
+    border-color: $primary-color;
+    background: $bg2;
+    transform: translateY(-2px);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+
+  @include media-mobile {
+    padding: $spacing-lg;
+    min-height: 120px;
+  }
+
+  input[type="file"] {
+    display: none;
+  }
+
+  span {
+    font-size: $font-size-h3;
+    margin-bottom: $spacing-sm;
+  }
+
+  p {
+    color: $text-gray;
+    font-size: $font-size-sm;
+    margin: 0;
+  }
+}
+
+.image-preview {
+  position: relative;
+  width: 100%;
+  margin-bottom: $spacing-lg;
+  border-radius: $border-radius-md;
+  overflow: hidden;
+  box-shadow: $shadow-medium;
+
+  img {
+    width: 100%;
+    height: auto;
+    max-height: 400px;
+    @include image-cover;
+    display: block;
+  }
+
+  .preview-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    pointer-events: none;
+
+    button {
+      position: absolute;
+      top: $spacing-md;
+      right: $spacing-md;
+      pointer-events: auto;
+      background: rgba($danger-color, 0.92);
+      color: $text-white;
+      border: none;
+      border-radius: 50%;
+      width: 32px;
+      height: 32px;
+      cursor: pointer;
+      font-size: 16px;
+      line-height: 1;
+      padding: 0;
+      transition: background $transition-fast;
+
+      &:hover {
+        background: $danger-color;
+      }
+    }
+  }
+}
+
+.form-input {
+  @include input-base;
+  font-size: $font-size-base;
+  background: $bg2;
+  color: $text-dark;
+  border-color: $border-light;
+
+  &::placeholder {
+    color: $text-light;
+  }
+
+  &:focus {
+    outline: none;
+    border-color: $primary-color;
+    box-shadow: 0 0 0 4px rgba($primary-color, 0.12);
+  }
+
+  @include media-mobile {
+    font-size: 16px; 
+  }
+}
+
+.form-textarea {
+  @include input-base;
+  font-family: $font-family-base;
+  font-size: $font-size-base;
+  resize: vertical;
+  min-height: 100px;
+  background: $bg2;
+  color: $text-dark;
+  border-color: $border-light;
+
+  &::placeholder {
+    color: $text-light;
+  }
+
+  &:focus {
+    outline: none;
+    border-color: $primary-color;
+    box-shadow: 0 0 0 4px rgba($primary-color, 0.12);
+  }
+}
+
+.recipe-form .form-input,
+.recipe-form .form-textarea {
+  width: 100%;
+}
+
+.cuisine-dropdown {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xs;
+}
+
+.field-label {
+  font-weight: $font-weight-medium;
+  color: $text-dark;
+  font-size: $font-size-sm;
+}
+
+.cuisine-dropdown__trigger {
+  @include input-base;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: $spacing-sm;
+  background: $bg2;
+  color: $text-dark;
+  border-color: $border-light;
+  text-align: left;
+
+  &:focus {
+    outline: none;
+    border-color: $primary-color;
+    box-shadow: 0 0 0 4px rgba($primary-color, 0.12);
+  }
+}
+
+.cuisine-dropdown__selected {
+  color: $text-dark;
+}
+
+.cuisine-dropdown__search {
+  @include input-base;
+  width: 100%;
+  background: $bg2;
+  color: $text-dark;
+  border-color: $border-light;
+
+  &::placeholder {
+    color: $text-light;
+  }
+
+  &:focus {
+    outline: none;
+    border-color: $primary-color;
+    box-shadow: 0 0 0 4px rgba($primary-color, 0.12);
+  }
+}
+
+.cuisine-dropdown__menu {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  right: 0;
+  z-index: 20;
+  max-height: 260px;
+  overflow-y: auto;
+  border: 1px solid rgba($border-dark, 0.95);
+  border-radius: $border-radius-md;
+  background: $card-bg;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.32);
+  padding: $spacing-xs;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xs;
+}
+
+.cuisine-dropdown__option {
+  width: 100%;
+  justify-content: flex-start;
+  padding: $spacing-sm $spacing-md;
+  border-radius: $border-radius-sm;
+  background: transparent;
+  color: $text-dark;
+  border: none;
+  box-shadow: none;
+  text-align: left;
+
+  &:hover {
+    background: rgba($primary-color, 0.12);
+    transform: none;
+    box-shadow: none;
+  }
+}
+
+.cuisine-dropdown__empty {
+  padding: $spacing-sm $spacing-md;
+  color: $text-gray;
+  font-size: $font-size-sm;
+}
+
+.form-group {
+  margin-bottom: $spacing-lg;
+  display: flex;
+  flex-direction: column;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  label {
+    font-weight: $font-weight-medium;
+    margin-bottom: $spacing-sm;
+    color: $text-dark;
+    font-size: $font-size-sm;
+  }
+
+  .hint {
+    font-size: $font-size-sm;
+    color: $text-gray;
+    margin-top: $spacing-xs;
+    font-style: italic;
+  }
+
+  .error {
+    color: $danger-color;
+    font-size: $font-size-sm;
+    margin-top: $spacing-xs;
+  }
+}
+
+.recipe-submit {
+  @include button-primary;
+  width: 100%;
+  margin-top: $spacing-lg;
+  font-size: $font-size-base;
+  font-weight: $font-weight-medium;
+  padding: $spacing-md;
+
+  &:disabled {
+    @include disabled-state;
+  }
+
+  &:loading {
+    @include loading-state;
+  }
+
+  @include media-mobile {
+    font-size: $font-size-base;
+  }
+}
+
+.recipe-success {
+  background: $bg3;
+  border: 1px solid $success-color;
+  border-radius: $border-radius-md;
+  padding: $spacing-md;
+  margin-bottom: $spacing-lg;
+  color: $success-color;
+  font-size: $font-size-sm;
+  text-align: center;
+  animation: slideInDown 0.3s ease;
+
+  @keyframes slideInDown {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}

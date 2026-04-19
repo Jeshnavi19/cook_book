@@ -1,0 +1,79 @@
+$bg: #0a0c1a;
+$bg2: #111428;
+$bg3: #1a1d35;
+$card-bg: #161929;
+$border-dark: #2a2d4a;
+$yellow: #f5d020;
+$pink: #ff3fa4;
+$cyan: #00e5ff;
+$green: #39ff14;
+$red: #ff3860;
+$primary-color: #00e5ff;
+$secondary-color: #ff3fa4;
+$accent-color: #f5d020;
+$success-color: #39ff14;
+$danger-color: #ff3860;
+$danger-hover: #ff1f4d;
+
+$dark-bg: $bg;
+$light-bg: #0f1326;
+$cream-bg: #131830;
+
+$text-dark: #e8eaf6;
+$text-gray: #7b7fa8;
+$text-light: #a2a7cf;
+$text-white: #ffffff;
+
+$border-light: rgba(42, 45, 74, 0.9);
+
+$spacing-xs: 5px;
+$spacing-sm: 10px;
+$spacing-md: 15px;
+$spacing-lg: 20px;
+$spacing-xl: 30px;
+$spacing-xxl: 40px;
+
+$border-radius-sm: 5px;
+$border-radius-md: 10px;
+$border-radius-lg: 12px;
+$border-radius-xl: 15px;
+
+$font-family-base:
+  "DM Sans",
+  "Segoe UI",
+  -apple-system,
+  BlinkMacSystemFont,
+  sans-serif;
+$font-family-heading:
+  "Syne",
+  "DM Sans",
+  sans-serif;
+$font-family-code:
+  source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+
+$font-size-h1: 32px;
+$font-size-h2: 24px;
+$font-size-h3: 18px;
+$font-size-base: 16px;
+$font-size-sm: 14px;
+
+$font-weight-normal: 400;
+$font-weight-medium: 500;
+$font-weight-bold: 700;
+
+$transition-fast: 0.2s ease;
+$transition-normal: 0.3s ease;
+$transition-slow: 0.5s ease;
+
+$shadow-light: 0 2px 8px rgba(0, 0, 0, 0.35);
+$shadow-medium: 0 8px 22px rgba(0, 0, 0, 0.42);
+$shadow-heavy: 0 16px 40px rgba(0, 0, 0, 0.55);
+
+$z-navbar: 100;
+$z-modal: 200;
+$z-dropdown: 150;
+
+$breakpoint-mobile: 480px;
+$breakpoint-tablet: 768px;
+$breakpoint-desktop: 1024px;
+$breakpoint-large: 1440px;
